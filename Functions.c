@@ -226,11 +226,21 @@ void userMove(int board[8][8]) {
     scanf("%s %d", &sourceColumn, &sourceLine);
     tmpS = (int) sourceColumn;
     tmpS -= 97;
+    if (sourceLine < 0 || sourceLine >= 8 || tmpS < 0 || tmpS >= 8 || board[sourceLine][tmp] >= 6)
+    {
+        wprintf(L"Invalid value! Try again!\n");
+        userMove(board);
+    }
 
     wprintf(L"Now enter destination%c%c", 0x000A, 0x000D);
     scanf("%s %d", &destinationColumn, &destinationLine);
     tmpD = (int) destinationColumn;
     tmpD -= 97;
+    if (destinationLine < 0 || destinationLine >= 8 || tmpD < 0 || tmpD >= 8)
+    {
+        wprintf(L"Invalid value! Try again!\n");
+        userMove(board);
+    }
 
 
     tmp = board[sourceLine - 1][tmpS];
@@ -239,8 +249,8 @@ void userMove(int board[8][8]) {
 
 }
 
-int enterAIMove() {
-    int x = 0, y = 0, k = 0, o = 0, result;
+int enterAIMove(int board[8][8]) {
+    int x = 0, y = 0, k = 0, o = 0, result = 0;
     result = bestPossibleMove(board, 6, &x, &y, &k, &o);
     int px = WX[board[x][y]][k] * o;
     int py = WY[board[x][y]][k] * o;

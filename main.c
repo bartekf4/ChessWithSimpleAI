@@ -21,10 +21,8 @@ int main() {
     while (1) {
         userMove(board);
         printBoard(board);
-
-        result = enterAIMove();
+        result = enterAIMove(board);
         if (abs(result) >= WIN) break;
-        enterAIMove();
         printBoard(board);
     }
     if (result >= WIN)

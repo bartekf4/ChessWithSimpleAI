@@ -1,5 +1,3 @@
-//
-
 #ifndef CHESSWITHSIMPLEAI_FUNCTIONS_H
 #define CHESSWITHSIMPLEAI_FUNCTIONS_H
 #ifndef MAIN_C_FUNCTIONS_H
@@ -17,7 +15,7 @@ void printBoard(int board[8][8]);
 
 void userMove(int board[8][8]);
 
-int enterAIMove();
+int enterAIMove(int board[8][8]);
 
 
 #endif
